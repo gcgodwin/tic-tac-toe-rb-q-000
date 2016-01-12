@@ -46,11 +46,7 @@ end
 
 
 def draw?(board)
-  if won?(board) == nil && turn_count(board) == MAX_TURNS
-    true
-  else
-    false
-  end
+  
 end
 
 def over?(board)
@@ -62,14 +58,11 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board) == false
-    return nil
-  else
-    return board[won?(board)[0]]
-  end
+  return board[won?(board)[0]]
 end
 
 def won?(board)
+  false
   WIN_COMBINATIONS.each do |win_combination|
   win_index_1 = win_combination[0]
   win_index_2 = win_combination[1]
@@ -83,7 +76,6 @@ def won?(board)
     false
   end
   end
-  
 end
 
 def turn_count(board = [9, " "])
@@ -105,7 +97,7 @@ def current_player(board)
 end
 
 def play(board)
-  until over?(board) == true
+until over?(board) == true
      turn(board)
   end
 end
